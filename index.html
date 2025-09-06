@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Стильный сайт-визитка с фотографиями</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <header class="header fade-in">
+    <div class="container header__container">
+      <div class="header__photo-wrapper">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Иван Иванов" class="header__photo" />
+      </div>
+      <div>
+        <h1 class="header__title">Иван Иванов</h1>
+        <p class="header__subtitle">Веб-разработчик • Фронтенд • UI/UX</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main fade-in delay-1">
+    <section id="about" class="section section--about container">
+      <div class="about__content">
+        <h2 class="section__title">Обо мне</h2>
+        <p class="section__text">
+          Я увлеченный веб-разработчик, создающий стильные, современные сайты с чистым кодом и удобным интерфейсом.
+          Моя задача — сделать ваш проект красивым и функциональным.
+        </p>
+      </div>
+      <div class="about__photos">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?&w=300" alt="Работа 1" />
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?&w=300" alt="Работа 2" />
+        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?&w=300" alt="Работа 3" />
+      </div>
+    </section>
+
+    <section id="services" class="section section--services container">
+      <h2 class="section__title">Услуги</h2>
+      <div class="services__grid">
+        <article class="service">
+          <img src="https://cdn-icons-png.flaticon.com/512/1086/1086933.png" alt="Иконка адаптивности" class="service__icon" />
+          <h3 class="service__title">Адаптивная верстка</h3>
+          <p class="service__desc">Сайты, идеально работающие на всех устройствах.</p>
+        </article>
+
+        <article class="service">
+          <img src="https://cdn-icons-png.flaticon.com/512/1047/1047710.png" alt="Иконка JS" class="service__icon" />
+          <h3 class="service__title">JavaScript интерактив</h3>
+          <p class="service__desc">Плавные эффекты, анимации и валидация форм.</p>
+        </article>
+
+        <article class="service">
+          <img src="https://cdn-icons-png.flaticon.com/512/907/907631.png" alt="Иконка оптимизации" class="service__icon" />
+          <h3 class="service__title">Оптимизация и доступность</h3>
+          <p class="service__desc">Быстрая загрузка и доступность для всех посетителей.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacts" class="section section--contacts container">
+      <h2 class="section__title">Связаться со мной</h2>
+      <form id="contact-form" class="contact-form" novalidate>
+        <label for="name" class="contact-form__label">Имя</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="contact-form__input"
+          placeholder="Ваше имя"
+          required
+          minlength="2"
+        />
+        <small class="contact-form__error"></small>
+
+        <label for="email" class="contact-form__label">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="contact-form__input"
+          placeholder="example@mail.com"
+          required
+        />
+        <small class="contact-form__error"></small>
+
+        <label for="message" class="contact-form__label">Сообщение</label>
+        <textarea
+          id="message"
+          name="message"
+          class="contact-form__textarea"
+          placeholder="Ваше сообщение"
+          required
+          minlength="5"
+        ></textarea>
+        <small class="contact-form__error"></small>
+
+        <button type="submit" class="btn btn--primary">Отправить</button>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="/script/script.js"></script>
+</body>
+</html>

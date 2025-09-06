@@ -1,0 +1,369 @@
+/* Сброс и базовые стили */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+  color: #37474f;
+  overflow-x: hidden;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Фоновая анимация градиента */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #d0f0ea, #a7d8c9, #4392d0);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
+  z-index: -2;
+}
+
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Полупрозрачный светлый наложенный слой */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.90);
+  z-index: -1;
+}
+
+/* Центрированный контейнер */
+.container {
+  max-width: 900px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+/* Эффект плавного появления */
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+.delay-1 {
+  animation-delay: 0.6s;
+}
+.delay-2 {
+  animation-delay: 1.2s;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Хедер - обертка и фото */
+.header__container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 50px 0 70px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header__photo-wrapper {
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(67, 146, 208, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.header__photo-wrapper:hover,
+.header__photo-wrapper:focus-within {
+  transform: scale(1.06);
+}
+
+.header__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Заголовки в хедере */
+.header__title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #2a3e52;
+  margin: 0 0 6px 0;
+  letter-spacing: 1.3px;
+  user-select: none;
+}
+
+.header__subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #4392d0;
+  margin: 0;
+  user-select: none;
+}
+
+/* Секции */
+.section {
+  margin-bottom: 60px;
+}
+
+/* Заголовки секций */
+.section__title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #2771a3;
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.section__title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #a7d8c9;
+  margin: 15px auto 0 auto;
+  border-radius: 3px;
+}
+
+/* Текст секций */
+.section__text {
+  font-size: 1.15rem;
+  color: #376c85;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.7;
+  user-select: text;
+}
+
+/* Секция "Обо мне" с фото */
+.about__content {
+  max-width: 660px;
+  margin: 0 auto 40px auto;
+}
+
+.about__photos {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.about__photos img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(67, 146, 208, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.about__photos img:hover,
+.about__photos img:focus {
+  box-shadow: 0 12px 32px rgba(67, 146, 208, 0.5);
+  transform: scale(1.07);
+  outline: none;
+}
+
+/* Сетка услуг */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 30px;
+}
+
+/* Карточки услуг */
+.service {
+  background-color: #a7d8c9;
+  border-radius: 18px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 20px rgba(64, 124, 141, 0.3);
+  color: #204651;
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: default;
+  user-select: none;
+}
+
+.service:hover,
+.service:focus-within {
+  box-shadow: 0 14px 36px rgba(32, 70, 81, 0.5);
+  transform: translateY(-7px);
+}
+
+.service__icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 2px 3px rgba(50, 109, 123, 0.4));
+}
+
+.service__title {
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.service__desc {
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Форма контактов */
+.contact-form {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-form__label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #20687a;
+  user-select: none;
+}
+
+.contact-form__input,
+.contact-form__textarea {
+  padding: 14px 18px;
+  font-size: 1.05rem;
+  border: 2px solid #89b6ac;
+  border-radius: 14px;
+  background-color: #e6f0efcc;
+  color: #205957;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+  user-select: text;
+}
+
+.contact-form__input::placeholder,
+.contact-form__textarea::placeholder {
+  color: #a4c8c5;
+  font-style: italic;
+}
+
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  border-color: #4392d0;
+  outline: none;
+  box-shadow: 0 0 14px rgba(67, 146, 208, 0.6);
+}
+
+.contact-form__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form__error {
+  color: #e73a3a;
+  font-size: 0.9rem;
+  min-height: 18px;
+}
+
+/* Кнопка */
+.btn {
+  padding: 16px 36px;
+  border-radius: 32px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #53a2be, #89c9d9);
+  color: white;
+  box-shadow: 0 7px 16px rgba(42, 104, 131, 0.65);
+  transition: background-position 0.4s ease, transform 0.3s ease;
+  background-size: 200% 200%;
+  background-position: left center;
+  user-select: none;
+}
+
+.btn:hover,
+.btn:focus {
+  background-position: right center;
+  outline: none;
+  transform: scale(1.1);
+}
+
+/* Сообщение об отправке */
+.form-message {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1a4d63;
+  min-height: 24px;
+  margin-top: 14px;
+  user-select: none;
+}
+
+/* Футер */
+.footer {
+  background-color: #8fcaca;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 1rem;
+  color: #254f5a;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  user-select: none;
+}
+
+/* Адаптивность */
+@media (max-width: 720px) {
+  .header__container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .header__title {
+    font-size: 2.5rem;
+  }
+
+  .service {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .service__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 14px;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 14px 28px;
+  }
+}
